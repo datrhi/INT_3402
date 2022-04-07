@@ -1,0 +1,18 @@
+Token name    Token value
+------------  ----------------------------------
+KEYWORD       while
+IDENTIFIER    numBitsSet
+IDENTIFIER    x
+ARITHMETIC    +
+CONSTANT      5
+COMPARISON    <=
+CONSTANT      10
+KEYWORD       if
+CONSTANT      1.0
+CONSTANT      4.0
+KEYWORD       String
+IDENTIFIER    hieudang
+ASSIGN        =
+STRING        "stiorjaosmdkl o20934023 4234 !@#"
+COMPARISON    ==
+IDENTIFIER    null
