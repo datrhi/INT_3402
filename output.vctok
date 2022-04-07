@@ -1,5 +1,5 @@
 Token name    Token value
-------------  ----------------------------------
+------------  -------------
 KEYWORD       while
 IDENTIFIER    numBitsSet
 IDENTIFIER    x
@@ -13,6 +13,5 @@ CONSTANT      4.0
 KEYWORD       String
 IDENTIFIER    hieudang
 ASSIGN        =
-STRING        "stiorjaosmdkl o20934023 4234 !@#"
 COMPARISON    ==
 IDENTIFIER    null

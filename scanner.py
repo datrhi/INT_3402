@@ -25,7 +25,6 @@ def scan(input, digit, posdigit, letter, keyword, arithmetic, comparison, whites
             # Ký tự tiếp theo khác letter thì check đoạn trước đó
             else:
                 i -= 1
-                # print(temp_token+ 'hieudang')
                 # Nếu trong danh sách keyword thì kết thúc và set lại temp_token
                 if temp_token in keyword:
                     symbol_table += [["KEYWORD", temp_token]]
@@ -103,7 +102,6 @@ def scan(input, digit, posdigit, letter, keyword, arithmetic, comparison, whites
                                 temp_token = ""
                         # 1234E+? = UNKNOWN
                         else:
-                            print(temp_token)
                             i -= 1
                             symbol_table += [["UNKNOWN", temp_token]]
                             temp_token = ""
@@ -119,7 +117,6 @@ def scan(input, digit, posdigit, letter, keyword, arithmetic, comparison, whites
                                 temp_token = ""
                         # 1234E? = Unknown
                         else:
-                            print(temp_token)
                             symbol_table += [["UNKNOWN", temp_token]]
                             i -= 1
                             temp_token = ""
@@ -187,26 +184,6 @@ def scan(input, digit, posdigit, letter, keyword, arithmetic, comparison, whites
             temp_token = ""
             i += 1
 
-        # Testing for TERMINATE:
-        # elif input[i] == ";":
-        #     symbol_table += [["TERMINATE", input[i]]]
-
-        # # Testing for BRACE:
-        # elif input[i] in brace:
-        #     symbol_table += [["BRACE", input[i]]]
-
-        # # Testing for PAREN:
-        # elif input[i] in paren:
-        #     symbol_table += [["Ngoặc tròn", input[i]]]
-
-        # # Testing for BRACKET:
-        # elif input[i] in bracket:
-        #     symbol_table += [["BRACKET", input[i]]]
-
-        # Testing for SEPERATE:
-        # elif input[i] == ",":
-        #     symbol_table += [["SEPERATE", input[i]]]
-
         # Chuỗi
         elif input[i] == "\"":
             temp_token += input[i]
@@ -234,12 +211,20 @@ def scan(input, digit, posdigit, letter, keyword, arithmetic, comparison, whites
             if input[i] in digit or input[i] in letter or input[i] == " " or input[i] in specialLetter:
                 temp_token += input[i]  
                 i += 1
+                if input[i] == "\'":
+                  temp_token += input[i]
+                  symbol_table += [["CHAR", temp_token]]
+                else:
+                  print("ERROR: Invalid input for CHAR: ", input[i])
+                  while input[i] != "\'":
+                      i += 1
+            elif input[i] == "\'":
                 temp_token += input[i]
                 symbol_table += [["CHAR", temp_token]]
             else:
                 print("ERROR: Invalid input for CHAR: ", input[i])
-                i += 1
-            temp_token = ""
+                while input[i] != "\'":
+                      i += 1
         temp_token = ""
         i += 1
 
