@@ -2,7 +2,8 @@
 VC Language Scanner
 
 ## Installation
+```
+pip install -r requirements.txt
 
-> pip install -r requirements.txt
-> py main.py test.vc
-
+py main.py test.vc
+```
